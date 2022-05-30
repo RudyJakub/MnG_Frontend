@@ -11,7 +11,10 @@
             <div class="divider"></div>
             <div class="message">
                 <p>{{ notif.content }}</p>
-                <img src="https://i1.kwejk.pl/k/obrazki/2022/05/ko3D9BSmAoPRLAWp.jpg" style="margin: 15px 0 0 50%; transform: translate(-50%); max-width: 90%;">
+                <br>
+                <div id='imgdiv'>
+                    <img src='' id='img'>
+                </div>
             </div>
         </div>
     </div>
@@ -21,12 +24,26 @@
 
 export default {
     name: "NotifPop",
+    data() {
+        return {
+            imgNotNull: false
+        }
+    },
     props: {
         notif: Object
     },
     methods: {
         hide() {
             this.$emit("hide")
+        },
+    }, 
+    mounted() {
+        if (this.notif.image) {
+            this.imgNotNull = true
+            document.getElementById('img').src = this.notif.image
+        } else {
+            this.imgNotNull = false
+            document.getElementById('imgdiv').innerHTML = ''
         }
     }
 }
@@ -117,4 +134,16 @@ export default {
         word-spacing: 2px;
         height: calc(70vh - 106px);
     }
+
+    #img{
+        margin: 15px 0 0 50%;
+        transform: translate(-50%);
+        max-width: 90%;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        padding: 5px;
+        height: auto;
+        width: auto;
+    }
+
 </style>

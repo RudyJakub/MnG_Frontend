@@ -8,7 +8,7 @@
             <input type="password" placeholder="Hasło" v-model="password" required>
             <button type="submit">Zaloguj</button>
             <label>
-                <p><a href="https://api.miastonagorze.pl/accounts/reset_password">Zresetuj hasło</a></p>
+                <p><a href="{{ passwordreseturl }}">Zresetuj hasło</a></p>
             </label>
             <div class="registerInfoContainer">
             <p>Nie masz konta?</p>
@@ -21,7 +21,7 @@
 
 <script>
 
-import { login } from "../auth"
+import { login, passwordResetURL } from "../auth"
 
 export default {
     name: "Login",
@@ -29,7 +29,8 @@ export default {
         return {
             username: '',
             password: '',
-            wrong: false
+            wrong: false,
+            passwordreseturl: passwordResetURL
         }
     },
     methods: {

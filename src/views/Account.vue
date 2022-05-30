@@ -10,7 +10,7 @@
                 <input type="email" v-model="newEmail" :placeholder="email">
                 <button v-on:click="changeEmail" type="submit">Zmień</button>
             </div>
-            <a href="link do zmiany hasła"><button id="passwordBtn">Zmień Hasło</button></a>
+            <a href="{{ passwordreseturl }}"><button id="passwordBtn">Zmień Hasło</button></a>
         </div>
         <br>
         <div>
@@ -23,6 +23,7 @@
 
 import { getAPI } from '../axios-api'
 import { mapState } from "vuex"
+import { passwordResetURL } from "../auth"
 
 export default {
   name: "Account",
@@ -30,6 +31,7 @@ export default {
       return {
           newUsername: '',
           newEmail: '',
+          passwordreseturl: passwordResetURL
       }
   },
   computed: {

@@ -2,6 +2,7 @@ import { getAPI } from './axios-api'
 import store from './store'
 import router from './router'
 
+const passwordResetURL = 'tutaj-trzeba-wstawic-link-do-zmiany-hasła'
 
 function register(credentials) {
     return new Promise((resolve, reject) => {
@@ -62,4 +63,4 @@ function getUserData(accessToken) {
     })
 }
 
-export { register, login, logout, getUserData }
+export { register, login, logout, getUserData, passwordResetURL }

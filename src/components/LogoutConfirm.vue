@@ -2,11 +2,43 @@
       <div id="confirmContainer">
         <p>Czy na pewno chcesz się wylogować?</p>
         <div class="buttonBox">
-            <button type="submit">Tak</button>
-            <button type="submit">Nie</button>
+            <button v-on:click="handleLogout" type="submit">Tak</button>
+            <button v-on:click="hideConfirmation" type="submit">Nie</button>
         </div>
     </div>
 </template>
+
+<script>
+
+import { mapState } from "vuex"
+import { logout } from '../auth'
+
+export default {
+  name: "LogoutConfirm",
+  computed: {
+    ...mapState(["accessToken"]),
+    authenticated() {
+      return this.accessToken !== undefined && this.accessToken !== '' && this.accessToken !== null
+    },
+  },
+  methods: {
+    handleLogout() {
+      logout(this.accessToken).then(() => {
+        this.$store.state.alert = "Wylogowano"
+        this.$router.push("/")
+      }).catch((err) => {
+        console.log(err)
+        this.$router.push("/")
+      })
+      this.hideConfirmation()
+    },
+    hideConfirmation() {
+      this.$store.state.showLogoutConfirmationPopup = false
+    }
+  }
+}
+
+</script>
 
 
 <style>
@@ -26,6 +58,7 @@
   }
 
   #confirmContainer{
+    z-index: 99999999;
     position: fixed;
     background-color: #f9fbff;
 

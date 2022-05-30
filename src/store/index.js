@@ -7,7 +7,8 @@ export default createStore({
     accessToken: '',
     username: '',
     email: '',
-    alert: ''
+    alert: '',
+    showLogoutConfirmationPopup: false
   },
   mutations: {
     updateTokens(state, data) {

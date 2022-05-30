@@ -27,27 +27,14 @@
         </ul>
     </div>
   </nav>
-  <div id="confirmContainer" v-if="showConfirmContainer">
-  <p>Czy na pewno chcesz się wylogować?</p>
-  <div class="buttonBox">
-      <button v-on:click="handleLogout">Tak</button>
-      <button v-on:click="hideConfirmation">Nie</button>
-  </div>
-  </div>
 </template>
 
 <script>
 
-import { logout } from "../auth"
 import { mapState } from "vuex"
 
 export default {
   name: "Menu",
-  data() {
-    return {
-      showConfirmContainer: false
-    }
-  },
   computed: {
     ...mapState(["accessToken"]),
     authenticated() {
@@ -56,20 +43,7 @@ export default {
   },
   methods: {
     showConfirmation() {
-      this.showConfirmContainer = true
-    },
-    hideConfirmation() {
-      this.showConfirmContainer = false
-    },
-    handleLogout() {
-      logout(this.accessToken).then(() => {
-        this.$store.state.alert = "Wylogowano"
-        this.$router.push("/")
-      }).catch((err) => {
-        console.log(err)
-        this.$router.push("/")
-      })
-      this.hideConfirmation()
+      this.$store.state.showLogoutConfirmationPopup = true
     },
     redirect() {
       this.$router.push("/")

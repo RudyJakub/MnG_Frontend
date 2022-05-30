@@ -1,4 +1,5 @@
 <template>
+  <LogoutConfirm v-if="showLogoutConfirmationPopup"/>
   <Alert v-if="showAlert" type="info"/>
   <Alert v-if="!isOnline" type="net_err"/>
   <Menu/>
@@ -9,10 +10,11 @@
 
 import Menu from './components/Menu.vue'
 import Alert from './components/Alert.vue'
+import LogoutConfirm from './components/LogoutConfirm.vue'
 import { mapState } from 'vuex';
 
 export default {
-    computed: mapState(['alert']),
+    computed: mapState(['alert', 'showLogoutConfirmationPopup']),
     data() {
         return {
             showAlert: false,
@@ -20,7 +22,7 @@ export default {
         }
     },
     components: {
-        Menu, Alert
+        Menu, Alert, LogoutConfirm
     },
     watch: {
         alert (newAlert, oldAlert) {
