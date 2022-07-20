@@ -58,6 +58,7 @@ export default createStore({
             refreshToken: res.data.refresh
           })
           getUserData(context.state.accessToken)
+          resolve()
         }).catch((err) => {
           console.log(err)
           if (err.response.status === 401) {
@@ -65,6 +66,7 @@ export default createStore({
             context.commit("destroyUserData")
             this.$router.push("/")
           }
+          reject(err)
         })
       })
     }

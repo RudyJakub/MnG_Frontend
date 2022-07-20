@@ -76,9 +76,11 @@ export default {
           if (res.data.description) {
             this.description = res.data.description
           }
+          resolve()
         }).catch((err) => {
           bgsection.style.backgroundColor = '#e4eaed'
           console.log(err)
+          reject(err)
         })
       })
     },

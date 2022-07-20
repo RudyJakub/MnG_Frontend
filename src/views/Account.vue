@@ -13,6 +13,7 @@
             <a href="{{ passwordreseturl }}"><button id="passwordBtn">Zmień Hasło</button></a>
         </div>
         <br>
+        <br>
         <div>
             <label style="color: red;" id="alertp"></label>
         </div>
@@ -67,6 +68,7 @@ export default {
                 this.newUsername = ''
                 document.getElementById("alertp").style = 'color: green;'
                 document.getElementById("alertp").innerText = 'Zmieniono!'
+                resolve()
             })
             .catch(err => {
                 console.log("ZMIANA NAZWY UŻ. błąd", err)
@@ -74,6 +76,7 @@ export default {
                     document.getElementById("alertp").style = 'color: red;'
                     document.getElementById("alertp").innerText = "Podana nazwa użytkownika jest nieprawidłowa"
                 }
+                reject(err)
             })
         })
       },
@@ -97,6 +100,7 @@ export default {
                 this.newEmail = ''
                 document.getElementById("alertp").style = 'color: green;'
                 document.getElementById("alertp").innerText = 'Zmieniono!'
+                resolve()
             })
             .catch(err => {
                 console.log("ZMIANA EMAIL. błąd", err.response)
@@ -104,6 +108,7 @@ export default {
                     document.getElementById("alertp").style = 'color: red;'
                     document.getElementById("alertp").innerText = "Podany email jest nieprawidłowy"
                 }
+                reject(err)
             })
         })
       }
