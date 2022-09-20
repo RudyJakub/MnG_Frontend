@@ -35,27 +35,26 @@ export default {
         padding: 20px 20px;
     }
 
-        .notification p{
-            
-            display: inline-block;
-        }
+    .notification p{
+        display: inline-block;
+    }
 
-        .userName{
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+    .userName{
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
 
-        .date{
-            float: right;
-            font-size: 14px;
-            font-weight: 300;
-        }
+    .date{
+        float: right;
+        font-size: 14px;
+        font-weight: 300;
+    }
 
-        .title{
-            margin-top: 3px;
-            display: block !important;
-            color: #444;
-            width: 95%;
-            font-weight: 400;
+    .title{
+        margin-top: 3px;
+        display: block !important;
+        color: #444;
+        width: 95%;
+        font-weight: 400;
         }
 </style>

@@ -65,6 +65,7 @@ export default {
     /* NOTIFICATIONS */
 
     .notification{
+        cursor: pointer;
         padding: 15px;
     }
 

@@ -170,12 +170,14 @@ button{
     background-color: #f9fbff;
     padding: 10px 5px;
     margin-left: 3%;
+    cursor: pointer;
 }
 
 #passwordBtn{
     margin-top: 10px;
     width: 100%;
     margin-left: 0;
+    cursor: pointer;
 }
 
 input[type=text], input[type=email]{

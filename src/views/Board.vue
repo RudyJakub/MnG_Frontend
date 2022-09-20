@@ -85,6 +85,7 @@ export default {
   }
 
     .notificationsContainer{
+        cursor: pointer;
         overflow-y: scroll;
         position: fixed;
         display: inline-block;
