@@ -17,3 +17,5 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Należy pamiętać o ustawieniu URL do serwera (po wdrożeniu) w axios-api.js
